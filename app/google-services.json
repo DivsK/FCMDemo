@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "427781793102",
+    "firebase_url": "https://trymahindra.firebaseio.com",
+    "project_id": "trymahindra",
+    "storage_bucket": "trymahindra.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427781793102:android:a23bcde2411db7dd",
+        "android_client_info": {
+          "package_name": "com.kellton.trymahindra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "427781793102-ug8uu5fobnan9lh2947fs40o0plmrvi3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kellton.trymahindra",
+            "certificate_hash": "7689d5682a172ede3f02689f7da4ec68d0100111"
+          }
+        },
+        {
+          "client_id": "427781793102-245sve9vtkhs9394j44hi43khb93hb2f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI9aJOKeOj8zJIGFRzqdQBjSwHY4c4cFE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "427781793102-245sve9vtkhs9394j44hi43khb93hb2f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
