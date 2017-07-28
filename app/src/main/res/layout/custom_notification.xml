@@ -2,16 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/fontPrimary10">
 
-    <ImageView
-        android:id="@+id/iv_icon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="15dp"
-        android:src="@drawable/notification"
-        />
 
     <TextView
         android:id="@+id/tv_title"
@@ -19,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textColor="#000000"
-        android:textSize="15sp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Display1"
         android:text="title"/>
 
     <TextView
@@ -28,17 +21,29 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textColor="#000000"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_below="@+id/tv_title"
         android:text="text message"/>
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/_white_star"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dp"
+
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tv_text"
         android:orientation="horizontal"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:weightSum="2">
+        android:layout_marginTop="5dp"
+        android:weightSum="2"
+        android:id="@+id/linearLayout">
 
         <Button
             android:id="@+id/btn_call"
@@ -46,21 +51,24 @@
             android:layout_height="match_parent"
             android:background="#ffffff"
             android:drawableLeft="@drawable/phone"
-            android:paddingLeft="15dp"
+            android:padding="10dp"
             android:paddingRight="20dp"
             android:text="Dial"
-            android:layout_weight="1"/>
-
-
+            android:layout_weight="0.95"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"/>
         <Button
             android:id="@+id/btn_message"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:background="#ffffff"
-            android:paddingLeft="15dp"
-            android:paddingRight="20dp"
-            android:drawableLeft="@drawable/message"
+            android:padding="10dp"
+            android:drawableRight="@drawable/message"
             android:text="Message"
-            android:layout_weight="1"/>
+            android:layout_weight="0.95"
+            android:layout_marginRight="10dp"/>
     </LinearLayout>
 </RelativeLayout>
