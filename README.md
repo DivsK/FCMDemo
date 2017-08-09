@@ -17,6 +17,11 @@ Pre-requisites
 - Android Build Tools v26.0.0
 -Google Play Services installed
 
+Setting Up firebase in your app
+--------------
+Steps:
+1.Open the firebase assistant from Tools->Firebase in Android Studio.
+2. Go to cloud messaging and follow the given steps.
 
 How to use this app in your android mobile
 --------------
