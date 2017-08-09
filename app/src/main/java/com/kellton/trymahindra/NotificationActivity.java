@@ -18,7 +18,7 @@ import android.widget.TextView;
 /**
  * <h1><font color="orange">NotificationActivity</font></h1>
  * Activity to receive notifications through a broadcast.
- * Created by Divya Khanduri on 25/7/17.
+ * @author Divya Khanduri
  */
 public class NotificationActivity extends AppCompatActivity {
 

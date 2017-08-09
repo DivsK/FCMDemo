@@ -8,7 +8,7 @@ import com.google.firebase.iid.FirebaseInstanceIdService;
 /**
  * <h1><font color="orange">MyFCMToken</font></h1>
  * Service class to register app in fcm and generate a token Id.
- * Created by Divya Khanduri on 25/7/17.
+ * @author Divya Khanduri
  */
 
 public class MyFCMToken extends FirebaseInstanceIdService {

@@ -16,7 +16,7 @@ import com.google.firebase.messaging.RemoteMessage;
 /**
  * <h1><font color="orange">MyFCMReceiveService</font></h1>
  * Service class to receive notifications.
- * Created by Divya Khanduri on 25/7/17.
+ * @author Divya Khanduri
  */
 
 public class MyFCMReceiveService extends FirebaseMessagingService {
