@@ -14,26 +14,44 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 /**
- * Created by ubuntu on 25/7/17.
+ * <h1><font color="orange">MyFCMReceiveService</font></h1>
+ * Service class to receive notifications.
+ * Created by Divya Khanduri on 25/7/17.
  */
 
 public class MyFCMReceiveService extends FirebaseMessagingService {
+    private final String TAG = MyFCMReceiveService.class.getSimpleName();
 
+    /**
+     * handles notifications received
+     */
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        Log.e("hello","onMessageReceived");
-        //Displaying data in log
-        //It is optional
-        Log.d("Message--", "From: " + remoteMessage.getFrom());
-        Log.d("Message Body--", "Notification Message Body: " + remoteMessage.getNotification().getBody());
+        Log.d(TAG, "From: " + remoteMessage.getFrom());
 
-        //Calling method to generate notification
-        //sendNotification(remoteMessage.getNotification().getBody(), remoteMessage.getData().get("Name").toString(), remoteMessage.getData().get("Phone-No").toString());
-        sendBroadcast(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());
+        // Check if message contains a data payload.
+        if (remoteMessage.getData().size() > 0) {
+            Log.d(TAG, "Message data payload: " + remoteMessage.getData());
+        }
+
+        // Check if message contains a notification payload.
+        if (remoteMessage.getNotification() != null) {
+            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            //creating default notification
+            sendNotification(remoteMessage.getNotification().getBody(), remoteMessage.getData().get("Name"), remoteMessage.getData().get("Phone-No"));
+        }
+
+        // Also if you intend on generating your own custom notifications as a result of a received FCM
+        // message, here is where that should be initiated. See sendBroadcast method below.
+
+        sendBroadcast(remoteMessage.getNotification().getBody(), remoteMessage.getData().get("Name"), remoteMessage.getData().get("Phone-No"));
     }
 
+    /**
+     * sending default notification
+     */
     private void sendNotification(String body, String name, String phone) {
-        Log.e("hello","sendNotification");
+        Log.e("hello", "sendNotification");
         Intent intent = new Intent(this, NotificationActivity.class);
         intent.putExtra("body", body);
         intent.putExtra("name", name);
@@ -58,12 +76,15 @@ public class MyFCMReceiveService extends FirebaseMessagingService {
         notificationManager.notify(0, notificationBuilder.build());
     }
 
-    public  void sendBroadcast(String title,String message)
-    {
-        Intent intent=new Intent("com.kellton.trymahindra_FCM-MESSAGE");
-        intent.putExtra("title",title);
-        intent.putExtra("message",message);
-        LocalBroadcastManager localBroadcastManager=LocalBroadcastManager.getInstance(this);
+    /**
+     * sending notification via broadcast
+     */
+    public void sendBroadcast(String body, String name, String phone) {
+        Intent intent = new Intent("com.kellton.trymahindra_FCM-MESSAGE");
+        intent.putExtra("body", body);
+        intent.putExtra("name", name);
+        intent.putExtra("phone", phone);
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
         localBroadcastManager.sendBroadcast(intent);
 
     }

@@ -15,24 +15,31 @@ import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 
+/**
+ * <h1><font color="orange">NotificationActivity</font></h1>
+ * Activity to receive notifications through a broadcast.
+ * Created by Divya Khanduri on 25/7/17.
+ */
 public class NotificationActivity extends AppCompatActivity {
-    private TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiverHandler,new IntentFilter("com.kellton.trymahindra_FCM-MESSAGE"));
+        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiverHandler, new IntentFilter("com.kellton.trymahindra_FCM-MESSAGE"));
         setContentView(R.layout.activity_notification);
-        mTextView = (TextView) findViewById(R.id.textView);
-        if(getIntent().getExtras()!=null)
-        {
-            mTextView.setText("Title" + getIntent().getStringExtra("title") + "\n" + "Message" + getIntent().getStringExtra("message"));
+        TextView mTextView = (TextView) findViewById(R.id.textView);
+        if (getIntent().getExtras() != null) {
+            // displaying content in activity from notification
+            mTextView.setText("Name" + getIntent().getStringExtra("name") + "\n" + "Phone" + getIntent().getStringExtra("phone"));
 
         }
     }
 
-    private void createNotification(String title, String body, Context context) {
-        Log.e("hello","onMessageReceived");
+    /**
+     * creating custom notification
+     */
+    private void createNotification(String title, String name, Context context) {
+        Log.e("hello", "onMessageReceived");
         Intent intent = new Intent(getApplicationContext(), NotificationActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent,
@@ -64,7 +71,7 @@ public class NotificationActivity extends AppCompatActivity {
                 .setCustomBigContentView(contentView);
 
         contentView.setTextViewText(R.id.tv_title, title);
-        contentView.setTextViewText(R.id.tv_text, body);
+        contentView.setTextViewText(R.id.tv_text, name);
         contentView.setImageViewResource(R.id.iv_icon, R.drawable._white_star);
 
 
@@ -73,12 +80,12 @@ public class NotificationActivity extends AppCompatActivity {
 
     }
 
-private BroadcastReceiver broadcastReceiverHandler=new BroadcastReceiver() {
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        String title=intent.getStringExtra("title");
-        String message=intent.getStringExtra("message");
-        createNotification(title,message,context);
-    }
-};
+    private BroadcastReceiver broadcastReceiverHandler = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String title = intent.getStringExtra("body");
+            String name = intent.getStringExtra("name");
+            createNotification(title, name, context);
+        }
+    };
 }
