@@ -1,5 +1,4 @@
-# SampleCode
-Notification Via FCM
+#Notification Via FCM
 ===================================
 
 >Firebase Cloud Messaging (FCM) is the new version of GCM. It inherits the reliable and scalable GCM infrastructure,with some new features.Things demonstrated here:
@@ -19,7 +18,7 @@ Pre-requisites
 
 Setting Up firebase in your app
 --------------
-1.Open the firebase assistant from Tools->Firebase in Android Studio.
+1. Open the firebase assistant from Tools->Firebase in Android Studio.
 2. Go to cloud messaging and follow the given steps.
 
 ![screenshot from 2017-08-09 12-24-25](https://user-images.githubusercontent.com/13947625/29108812-2b63092c-7cfe-11e7-93ce-010476b3cb54.png)
