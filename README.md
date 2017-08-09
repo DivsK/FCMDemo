@@ -19,7 +19,6 @@ Pre-requisites
 
 Setting Up firebase in your app
 --------------
-Steps:
 1.Open the firebase assistant from Tools->Firebase in Android Studio.
 2. Go to cloud messaging and follow the given steps.
 
