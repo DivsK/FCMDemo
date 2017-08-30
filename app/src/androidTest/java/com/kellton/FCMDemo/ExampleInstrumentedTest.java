@@ -1,4 +1,4 @@
-package com.kellton.trymahindra;
+package com.kellton.FCMDemo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

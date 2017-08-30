@@ -1,4 +1,4 @@
-package com.kellton.trymahindra;
+package com.kellton.FCMDemo;
 
 import org.junit.Test;
 

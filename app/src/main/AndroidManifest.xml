@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kellton.trymahindra">
+    package="com.kellton.FCMDemo">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ASEC_CREATE"/>
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NotificationActivity">
+        <activity android:name="com.kellton.FCMDemo.NotificationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,13 +20,13 @@
         </activity>
 
         <service
-            android:name=".MyFCMToken">
+            android:name="com.kellton.FCMDemo.MyFCMToken">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
         </service>
         <service
-            android:name=".MyFCMReceiveService">
+            android:name="com.kellton.FCMDemo.MyFCMReceiveService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
